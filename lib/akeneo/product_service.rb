@@ -28,6 +28,10 @@ module Akeneo
     end
 
     def all(with_family: nil, with_completeness: nil, updated_after: nil)
+      p '----   method all   ----'
+      p with_family
+      p with_completeness
+      p '---- end method all ----'
       Enumerator.new do |products|
         path = build_path(with_family, with_completeness, updated_after)
 
@@ -55,6 +59,10 @@ module Akeneo
     private
 
     def build_path(family, completeness, updated_after)
+      p '----   method build_path   ----'
+      p family
+      p completeness
+      p '---- end method build_path ----'
       path = "/products?#{pagination_param}&#{limit_param}"
       path + search_params(
         family: family,
